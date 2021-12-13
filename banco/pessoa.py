@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+import os
 
 
 class Pessoa(ABC):
@@ -6,7 +7,12 @@ class Pessoa(ABC):
     def __init__(self):
         self._nome = str
         self._idade = int
-        self._contabancaria = None
+        self._conta_poupanca = None
+        self._conta_corrente = None
+
+    @property
+    def conta_poupanca(self):
+        return self._conta_poupanca
 
 
 class Cliente(Pessoa):
@@ -28,7 +34,6 @@ class Cliente(Pessoa):
 
     @idade.setter
     def idade(self, valor):
-        clear = lambda: os.system('clear')
         if valor.isnumeric():
             self._idade = valor
         else:
@@ -36,21 +41,23 @@ class Cliente(Pessoa):
             print('A idade precisa ser numérica!')
 
     @property
-    def contabancaria(self):
-        return self._contabancaria
+    def conta_poupanca(self):
+        return self._conta_poupanca
 
-    @contabancaria.setter
-    def contabancaria(self, valor):
-        self._contabancaria = valor
+    @conta_poupanca.setter
+    def conta_poupanca(self, valor):
+        self._conta_poupanca = valor
+
+    @property
+    def conta_corrente(self):
+        return self._conta_corrente
+
+    @conta_corrente.setter
+    def conta_corrente(self, valor):
+        self._conta_corrente = valor
 
     def criar_cliente(self, nome, idade):
         self.nome = nome
         self.idade = idade
 
-
-# novo = Cliente()
-# novo.criar_cliente(nome='Diego', idade='31')
-# novo.contabancaria = a
-# print(novo.nome)
-# print(novo.contabancaria.conta, novo.contabancaria.agencia, novo.contabancaria.saldo)
 

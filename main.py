@@ -1,14 +1,14 @@
 from banco.botoes import *
-from banco.novocliente import criar_cliente
+from banco.novocliente import *
+from banco.funcoes import *
 
 """_ é uma variavel para usar em laços infinitos"""
 _ = True
-clear = lambda: os.system('clear')
 
-clear()
 
 botao_menu = Menu()
 while _:
+    clear()
     """Inicio do programa"""
     print('Seja bem-vindo caro cliente, em que posso ser util?')
     botao_menu.botao0 = input("""
@@ -28,8 +28,11 @@ Digite sua [opção]: """)
 
 Digite sua [opção]: """)
             if botao_menu.botao1 == 1:
-
-                nova_conta = criar_cliente()
+                nova_conta = criar_poupanca()
+                break
+            elif botao_menu.botao1 == 2:
+                nova_conta = criar_corrente()
+                break
 
     elif botao_menu.botao0 == 3:
         print('\n'*150)
