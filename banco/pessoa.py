@@ -4,8 +4,8 @@ from abc import ABC, abstractmethod
 class Pessoa(ABC):
     @abstractmethod
     def __init__(self):
-        self._nome = None
-        self._idade = None
+        self._nome = str
+        self._idade = int
         self._contabancaria = None
 
 
@@ -28,9 +28,11 @@ class Cliente(Pessoa):
 
     @idade.setter
     def idade(self, valor):
+        clear = lambda: os.system('clear')
         if valor.isnumeric():
             self._idade = valor
         else:
+            clear()
             print('A idade precisa ser numérica!')
 
     @property

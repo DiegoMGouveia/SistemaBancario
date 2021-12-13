@@ -7,6 +7,8 @@ def get_num(valor):
             y += x
 
     if y == '':
+        clear = lambda: os.system('clear')
+        clear()
         print('Precisa digitar números para deposito.')
         return 0
     else:

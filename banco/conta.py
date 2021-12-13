@@ -1,5 +1,5 @@
-from funcoes import get_num
-from bancos import Banco
+from banco.funcoes import *
+from banco.bancos import *
 
 
 class ContaPoupanca(Banco):
@@ -31,14 +31,10 @@ class ContaPoupanca(Banco):
 
     @saldo.setter
     def sacar(self, valor):
+        clear = lambda: os.system('clear')
         if valor > self.saldo:
+            clear()
             print('Saldo insuficiente.')
         elif valor <= self.saldo:
             self.saldo -= valor
 
-
-
-# a = ContaPupanca()
-# a.criar_conta(agencia=1494, conta=randint(10000, 99999))
-# a.depositar = '50'
-# print(a.conta, a.agencia, a.saldo)
